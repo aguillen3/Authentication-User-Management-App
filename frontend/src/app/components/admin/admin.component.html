@@ -1,0 +1,25 @@
+<div class="admin">
+  <h2>Admin Dashboard</h2>
+  <div class="filters">
+    <input placeholder="search name" [(ngModel)]="search" />
+    <input type="date" [(ngModel)]="from" />
+    <input type="date" [(ngModel)]="to" />
+    <select [(ngModel)]="active">
+      <option value="">All</option><option value="1">Active</option><option value="0">Inactive</option>
+    </select>
+    <button (click)="load()">Filter</button>
+  </div>
+  <div class="stats" *ngIf="stats">
+    <p>Total users: {{stats.total}}</p><p>Active users: {{stats.active}}</p><p>Deleted users: {{stats.deleted}}</p>
+  </div>
+  <h3>Connected users (live):</h3>
+  <ul><li *ngFor="let u of connectedUsers">User ID: {{u}}</li></ul>
+  <table><thead><tr><th>ID</th><th>Username</th><th>Email</th><th>Created</th><th>Last Activity</th><th>Active</th><th>Actions</th></tr></thead>
+    <tbody><tr *ngFor="let u of users"><td>{{u.id}}</td><td>{{u.username}}</td><td>{{u.email}}</td><td>{{u.created_at}}</td><td>{{u.last_activity}}</td><td>{{u.active}}</td>
+      <td><button (click)="deactivate(u.id)">Deactivate</button> <button (click)="deleteUser(u.id)">Delete</button> <button (click)="viewTokens(u.id)">View Tokens</button></td></tr></tbody></table>
+  <div *ngIf="tokens.length>0">
+    <h4>Refresh tokens for user {{selectedUserId}}</h4>
+    <table><thead><tr><th>ID</th><th>Created</th><th>Expires</th><th>Revoked</th><th>IP</th><th>User Agent</th><th>Action</th></tr></thead>
+      <tbody><tr *ngFor="let t of tokens"><td>{{t.id}}</td><td>{{t.created_at}}</td><td>{{t.expires_at}}</td><td>{{t.revoked}}</td><td>{{t.ip}}</td><td>{{t.user_agent}}</td><td><button (click)="revokeToken(t.id)">Revoke</button></td></tr></tbody></table>
+  </div>
+</div>

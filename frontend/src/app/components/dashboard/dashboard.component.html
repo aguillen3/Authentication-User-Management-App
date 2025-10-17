@@ -1,0 +1,11 @@
+<div class="dashboard">
+  <h1>Welcome</h1>
+  <div *ngIf="!auth.isLoggedIn()">
+    <a routerLink="/login">Login</a> | <a routerLink="/register">Create account</a>
+  </div>
+  <div *ngIf="auth.isLoggedIn()">
+    <p>You are logged in.</p>
+    <button (click)="auth.logout()">Logout</button>
+    <button (click)="auth.deleteAccount().subscribe(()=>{ auth.logout(); alert('account deleted'); })">Delete account</button>
+  </div>
+</div>

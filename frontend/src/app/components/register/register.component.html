@@ -1,0 +1,12 @@
+<div class="register">
+  <h2>Create account</h2>
+  <form (submit)="register(); $event.preventDefault();">
+    <label>Username</label>
+    <input [(ngModel)]="username" name="username" />
+    <label>Email (optional)</label>
+    <input [(ngModel)]="email" name="email" />
+    <label>Password</label>
+    <input [(ngModel)]="password" name="password" type="password" />
+    <button type="submit">Create</button>
+  </form>
+</div>

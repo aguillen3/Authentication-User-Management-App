@@ -1,0 +1,11 @@
+<div class="login">
+  <h2>Login</h2>
+  <form (submit)="login(); $event.preventDefault();">
+    <label>Username</label>
+    <input [(ngModel)]="username" name="username" />
+    <label>Password</label>
+    <input [(ngModel)]="password" name="password" type="password" />
+    <button type="submit">Login</button>
+  </form>
+  <a routerLink="/register">Create account</a> | <a routerLink="/request-reset">Forgot password?</a>
+</div>

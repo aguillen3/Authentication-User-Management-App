@@ -1,0 +1,9 @@
+/* Prettier minimal styles */
+body { font-family: Inter, Roboto, Arial, sans-serif; background: #f7fafc; color: #1a202c; margin: 0; }
+.app { max-width: 1000px; margin: 32px auto; padding: 24px; background: #fff; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.06);} 
+h1,h2,h3 { color: #2d3748 }
+input,select,textarea,button { padding: 8px 12px; border-radius: 8px; border: 1px solid #e2e8f0; }
+button { cursor: pointer; background: #2563eb; color: white; border: none; }
+button.secondary { background: #edf2f7; color: #1a202c; }
+.table { width: 100%; border-collapse: collapse; }
+.table th, .table td { padding: 8px 12px; border-bottom: 1px solid #edf2f7; }
